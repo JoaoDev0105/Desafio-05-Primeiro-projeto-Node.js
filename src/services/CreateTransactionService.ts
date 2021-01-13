@@ -25,7 +25,7 @@ class CreateTransactionService {
     if (!["income", "outcome"].includes(type)){
       throw Error ('Transaction type is invalid');
     }
-
+    // função para verificar se o valor de saldo e maior do que o possivel para retirar
     const { total } = this.transactionsRepository.getBalance();
 
     if (type === 'outcome' && total < value ) {
